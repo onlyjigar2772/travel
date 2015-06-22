@@ -5,11 +5,10 @@
     <title></title>
 </head>
 <body>
-<h1>{{ title }} </h1>
 
 <form method="POST" action=""> {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" value="Signup">
+    <input type="submit" value="Submit" />
 </form>
 
 </body>
