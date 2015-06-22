@@ -11,12 +11,17 @@ def home(request):
         "form": form
     }
     if form.is_valid():
+        # form.save()
         instance = form.save(commit=False)
-        if not instance.full_name:
-            instance.full_name = "Jigar"
+        full_name = form.cleaned_data.get("full_name")
+        if not full_name:
+            full_name = "New full name"
+        # if not instance.full_name:
+        instance.full_name = "Jigar"
         instance.save()
         context = {
             "title": "Thank You"
         }
+
     return render(request, "home.html", context)
 
